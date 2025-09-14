@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    
+    <div class="top">
+        <h1 id="return"><</h1>   
+    </div>    
+    
+    <div class="images">
+        
+        <a href="derma/img1.jpg"><img src="derma/img1.jpg"></a>
+        <a href="derma/img2.jpg"><img src="derma/img2.jpg"></a>
+        <a href="derma/img3.jpg"><img src="derma/img3.jpg"></a>
+        <a href="derma/img4.jpg"><img src="derma/img4.jpg"></a>
+      
+    </div>
+    <style>
+        .container h1{
+            display: flex;
+            justify-content: center;
+            color: black;
+        }
+        .container ul{
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+        .myhome li{
+            list-style-type: none;
+            padding: 10px;
+            display: flex;
+        }
+        img{
+            width: 182px;
+            height: 250px;
+            box-shadow: 1px 2px 3px black; 
+        }
+        #return{
+            margin: 10px;
+        }
+        .top{
+            align-items: center;
+            display: flex;
+            gap: 210px;
+        }
+    </style>
+    <script>
+        document.getElementById("return").addEventListener("click", ()=>{
+            window.location.href = "tmg.html";
+        })
+    </script>
+</body>
+</html>
