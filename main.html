@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pandas - Enhanced</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    
+    <div class="top">
+        <h1><i>Turing complete.</i></h1>
+    </div>
+
+    <div class="container">
+        <ul>
+            <li id="hamburger">≡</li>
+            <li id="tmg">T.M.G</li>
+            <li id="smi">E.S.M.I</li>
+            <li>E.G</li>
+        </ul>
+    </div>
+    
+    <!--<div class="apps">
+        <div class="handyApps">
+            <label><i>Handy apps.</i></label>
+        </div>
+        
+        <div class="games">
+            <label>Games.</label>
+        </div>
+    </div>-->
+    
+    <!-- Side Menu -->
+    <div class="side-menu" id="sideMenu">
+        <div class="side-menu-header">
+            <h2>Turing complete.</h2>
+            <span class="close-btn" id="closeBtn">&times;</span>
+        </div>
+        <div class="side-menu-content">
+            <div class="menu-item">
+                <h3>📚 Courses.</h3>
+                <ul>
+                    <li>Built by Dion!!</li>
+                    <li>Machine Learning</li>
+                    <li>Apple intelligence</li>
+                    <li>Python Programming</li>
+                </ul>
+            </div>
+            <div class="menu-item">
+                <h3>🎯 Quick Actions.</h3>
+                <ul>
+                    <li>Turing complete</li>
+                    <li>Deep learning</li>
+                    <li>Diamond inherentance</li>
+                    <li>Settings</li>
+                </ul>
+            </div>
+            <div class="menu-item">
+                <h3>📊 Progress.</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p>75% Complete</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="semestres" id="semestre">
+        <ul>
+            <li id="1seme">1° semestre.</li>
+            <li id="2seme"><a href="tmg.html">2° semestre.</a></li>
+            <li id="3seme">3° semestre.</li>
+            <li id="4seme">4° semestre.</li>
+            <li id="5sems">5° semestre.</li>
+        </ul>
+    </div>
+    
+   <!-- <div class="smiSeme" id="semestreSmi">
+        <ul>
+<div></div>            <li>1° semestre.</li>
+            <li>2° semestre.</li>
+            <li>3° semestre.</li>
+            <li>4° semestre.</li>
+            <li>5° semestre.</li>
+        </ul>
+    </div>-->
+    
+    
+    
+
+    <!-- Overlay for side menu -->
+    <div class="overlay" id="overlay"></div>
+    
+    <style>        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+           /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .top {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .top h1 {
+            font-size: 3rem;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .container li {
+            display: flex;
+            float: left;
+            gap: 20px;
+            text-decoration: none;
+            margin-left: -10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .container li:hover {
+            transform: scale(1.1);
+            color: #ffd700 !important;
+        }
+
+        #hamburger {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .container ul {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            gap: 70px;
+           /* background: rgba(0,0,0,0.8);*/
+           background: black;
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px;
+            margin-top: -10px;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .semestres li {
+            display: flex;
+            text-decoration: none;
+            border: 1px solid #667eea;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            list-style-type: none;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .semestres li:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(10px);
+        }
+
+        .semestres ul {
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            width: 150px;
+            padding: 15px;
+            margin-left: 60px;
+            margin-top: -20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #667eea;
+        }
+        
+               
+
+        /* Side Menu Styles */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -350px;
+            width: 350px;
+            height: 100vh;
+           /* background: linear-gradient(145deg, #2d3748, #1a202c);*/
+            background: black;
+            color: white;
+            z-index: 1000;
+            transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+            overflow-y: auto;
+        }
+
+        .side-menu.active {
+            left: 0;
+        }
+
+        .side-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .side-menu-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .close-btn {
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+            color: #ff6b6b;
+        }
+
+        .side-menu-content {
+            padding: 20px;
+        }
+
+        .menu-item {
+            margin-bottom: 30px;
+            animation: slideInLeft 0.5s ease forwards;
+        }
+
+        .menu-item h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .menu-item ul {
+            list-style: none;
+        }
+
+        .menu-item li {
+            padding: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            padding-left: 15px;
+        }
+
+        .menu-item li:hover {
+            color: #667eea;
+            border-left-color: #667eea;
+            transform: translateX(10px);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            width: 75%;
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 5px;
+            animation: progressGrow 2s ease-in-out;
+        }
+
+        @keyframes progressGrow {
+            from { width: 0%; }
+            to { width: 75%; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .side-menu {
+                width: 280px;
+                left: -280px;
+            }
+            
+            .container ul {
+                gap: 30px;
+                padding: 10px;
+            }
+            
+            .top h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    
+    <script>
+        let count = 0;
+        let menuCount = 0;
+        
+        const tmg = document.getElementById("tmg");
+        
+        const smi = document.getElementById("smi");
+        const smiSeme = document.getElementById("semestreSmi");
+       
+        const semestre = document.getElementById("semestre");
+        const hamburger = document.getElementById("hamburger");
+        const sideMenu = document.getElementById("sideMenu");
+        const closeBtn = document.getElementById("closeBtn");
+        const overlay = document.getElementById("overlay");
+        const body = document.body;
+        
+        // Hide semester menu initially
+        semestre.style.display = "none";
+      /*  smiSeme.style.display = "none";
+       
+       smi.addEventListener("click", ()=>{
+           count++;
+           
+           if(count % 2 == 1){
+               smiSeme.style.display = "block";
+           }
+           
+           else if(count % 2 == 0){
+               smiSeme.style.display = "none";
+           }
+       });*/
+        
+        
+        // Your original toggle logic for T.M.G
+        tmg.addEventListener("click", () => {
+            count++;
+           
+            
+            if(count % 2 == 1) {
+                semestre.style.display = "block";
+            } else if(count % 2 == 0) {
+                semestre.style.display = "none";
+            }
+        });
+        
+        // Side menu toggle logic
+        function toggleSideMenu() {
+            menuCount++;
+            
+            if(menuCount % 2 == 1) {
+                sideMenu.classList.add("active");
+                overlay.classList.add("active");
+                body.classList.add("menu-open");
+            } else {
+                sideMenu.classList.remove("active");
+                overlay.classList.remove("active");
+                body.classList.remove("menu-open");
+            }
+        }
+        
+        function closeSideMenu() {
+            menuCount = 0; // Reset counter
+            sideMenu.classList.remove("active");
+            overlay.classList.remove("active");
+            body.classList.remove("menu-open");
+        }
+        
+        // Event listeners for side menu
+        hamburger.addEventListener("click", toggleSideMenu);
+        closeBtn.addEventListener("click", closeSideMenu);
+        overlay.addEventListener("click", closeSideMenu);
+        
+        // Add click handlers to menu items
+        const menuItems = document.querySelectorAll('.menu-item li');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Add a subtle animation when clicked
+                item.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    item.style.transform = 'translateX(10px)';
+                }, 100);
+            });
+        });
+        
+        // Escape key to close side menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sideMenu.classList.contains('active')) {
+                closeSideMenu();
+            }
+        });
+    </script>
+</body>
+                  </html>
